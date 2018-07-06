@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="target-densitydpi=device-dpi,width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>imitate</title><link href=/static/css/app.5e2e1d8516654dc44f8ccd3623c9e64d.css rel=stylesheet></head><script src=./src/utils/d3.min.js></script><script type=text/javascript src=jquery.js></script><script src=//unpkg.com/vue-ydui/dist/ydui.flexible.js></script><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.548f4c8e5158e7835c1a.js></script><script type=text/javascript src=/static/js/app.b004f8181c42d0423ef2.js></script></body><script>$(function () {
+            $("#put").click(function () {
+                $.ajax({
+                        url:"/addproject/",
+                        type:"POST",
+                        data:$('#payment').serialize(),
+                        dataType:"json",
+                        beforeSend:function(XMLHttpRequest){
+                           _self.val("保存中...");
+                           _self.attr('disabled',true);
+                        },
+                        success:function(arg){
+                             alert("添加成功")
+                            if (arg["status"] == "200"){
+                                alert("添加成功")
+                                window.location.href="/projectlist/";
+                            }
+                        },
+                        error: function(arg){
+                          alert('error')
+                        }
+                })
+            })
+        })</script></html>
